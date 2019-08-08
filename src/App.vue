@@ -1,15 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/pokemon.png" />
+    <img class="img" alt="Vue logo" src="./assets/pokemon.png" />
     <ListPokemon></ListPokemon>
-    <onePokemon></onePokemon>
+   
     
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import onePokemon from "./components/onePokemon.vue";
 import ListPokemon from "./components/ListPokemon.vue";
 
 export default {
@@ -17,7 +16,7 @@ export default {
 
   components: {
     ListPokemon,
-    onePokemon
+    
   },
   data() {
     return {};
@@ -36,6 +35,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.img{
+  height: 250px;
 }
 
 </style>
