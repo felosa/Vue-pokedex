@@ -7,8 +7,8 @@
       
       <div class="pokemon" v-for="(pokemon,index) in pokemons.results" v-bind:key="index">
       <a href="#" v-on:click="()=>getonePokemon(index+1)">{{pokemon.name.toUpperCase()}}</a>
-      <p># {{index+1}}</p>
-      
+      <span>---#{{index+1}}</span> 
+      <br>  
       </div>
       </div>
       <div class="one">
@@ -49,13 +49,11 @@ export default {
       })
         .then(response=>{
           this.pokemons = response.data
-        })
-        .catch(e => console.log(e))
+        }).catch(e => console.log(e))
     },
     getonePokemon(id){
       axios.get(`https://pokeapi.co/api/v2/pokemon/` +id)
         .then(response=>{
-          console.log(response.data, "pok")
           this.pokemon = response.data
         })
         .catch(e => console.log(e))
@@ -80,6 +78,7 @@ export default {
 .pokemon {
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
 .list {
   width: 40%;
@@ -88,5 +87,10 @@ export default {
 }
 .one{
   width: 40%;
+}
+a {
+  text-decoration:none; 
+  color: black;
+
 }
 </style>
